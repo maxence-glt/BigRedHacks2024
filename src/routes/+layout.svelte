@@ -47,4 +47,4 @@
 	</div>
 </header>
 
-<h1 class="h-screen-no-header px-10"><slot /></h1>
+<div class="h-screen-no-header px-10"><slot /></div>
