@@ -6,6 +6,7 @@ import type { RequestEvent } from '@sveltejs/kit';
 
 export async function GET(event: RequestEvent): Promise<Response> {
 	const code = event.url.searchParams.get('code');
+	console.log(code);
 	const state = event.url.searchParams.get('state');
 	const storedState = event.cookies.get('github_oauth_state') ?? null;
 
