@@ -34,8 +34,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"bits-ui": "^0.21.16",
 		"clsx": "^2.1.1",
 		"mode-watcher": "^0.4.1",
+		"svelte-intersection-observer": "^1.0.0",
 		"tailwind-merge": "^2.5.3",
 		"tailwind-variants": "^0.2.1"
 	}
