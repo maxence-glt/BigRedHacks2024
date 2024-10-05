@@ -1,9 +1,10 @@
-// src/lib/server/auth.ts
 import { Lucia } from 'lucia';
 import { dev } from '$app/environment';
 import { adapter } from '$lib/server/db';
-import { Google } from 'arctic';
-import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from '$env/static/private';
+import { GitHub } from 'arctic';
+import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from '$env/static/private';
+
+export const github = new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET);
 
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {
@@ -14,7 +15,7 @@ export const lucia = new Lucia(adapter, {
 	getUserAttributes: (attributes) => {
 		return {
 			// attributes has the type of DatabaseUserAttributes
-			googleId: attributes.google_id,
+			githubId: attributes.github_id,
 			username: attributes.username
 		};
 	}
@@ -28,6 +29,6 @@ declare module 'lucia' {
 }
 
 interface DatabaseUserAttributes {
-	google_id: number;
+	github_id: number;
 	username: string;
 }
