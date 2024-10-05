@@ -38,6 +38,11 @@
 		"clsx": "^2.1.1",
 		"mode-watcher": "^0.4.1",
 		"svelte-intersection-observer": "^1.0.0",
+		"@lucia-auth/adapter-mongodb": "^1.0.3",
+		"arctic": "^1.9.2",
+		"clsx": "^2.1.1",
+		"lucia": "^3.2.0",
+		"mongoose": "^8.7.0",
 		"tailwind-merge": "^2.5.3",
 		"tailwind-variants": "^0.2.1"
 	}
