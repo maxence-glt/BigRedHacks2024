@@ -5,9 +5,9 @@ import { MONGO_URI } from '$env/static/private';
 await mongoose.connect(MONGO_URI);
 
 export const Offering =
-	mongoose.models.Offering ||
+	mongoose.models.Listing ||
 	mongoose.model(
-		'Offering',
+		'Listing',
 		new mongoose.Schema(
 			{
 				_id: {
@@ -21,19 +21,27 @@ export const Offering =
 				borrower_id: {
 					type: String
 				},
-				price: {
-					type: Number,
-					required: true
-				},
-				borrow_time_limit: {
-					type: Number
-				},
 				rating: {
 					type: Number
 				},
-				created_at: {
+				listed_at: {
 					type: Date,
 					required: true
+				},
+				accepted_at: {
+					type: Date
+				},
+				transacted_at: {
+					type: Date
+				},
+				concluded_at: {
+					type: Date
+				},
+				wanted_back_by: {
+					type: Date
+				},
+				wanted_by: {
+					type: Date
 				}
 			} as const,
 			{ _id: false }
@@ -61,13 +69,19 @@ export const User =
 				offers: [
 					{
 						type: mongoose.Schema.Types.ObjectId,
-						ref: 'Offering'
+						ref: 'Listing'
 					}
 				],
 				borrows: [
 					{
 						type: mongoose.Schema.Types.ObjectId,
-						ref: 'Offering'
+						ref: 'Listing'
+					}
+				],
+				connections: [
+					{
+						type: mongoose.Schema.Types.ObjectId,
+						ref: 'User'
 					}
 				]
 			} as const,
